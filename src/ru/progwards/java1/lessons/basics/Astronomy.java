@@ -22,11 +22,11 @@ public class Astronomy {
     }
 
     public static Double earthVsMercury() {
-        return sphereSquare(earthSquare() / mercurySquare());
+        return earthSquare() / mercurySquare();
     }
 
     public static Double earthVsJupiter() {
-        return sphereSquare(earthSquare() / jupiterSquare());
+        return earthSquare() / jupiterSquare();
     }
 
 
