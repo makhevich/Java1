@@ -33,9 +33,10 @@ public class Test1 {
     }
 
     static long factorial(long n) {
-
-        long results = 0L;
-        for (long i = 0; i <= n; i++) {
+        long results = 1;
+        for (long i = 2; i <= n; i++) {
+            results *= i;
+            System.out.println(results);
         }
         return results;
     }
@@ -51,6 +52,6 @@ public class Test1 {
 //            System.out.println("Что-то из этого условия точно верно");
 //        else
 //            System.out.println("Быть может что-то в этом условии верно, но что-то точно нет");
-        System.out.println(factorial(5));
+        System.out.println(factorial(2));
     }
 }
