@@ -6,8 +6,8 @@ public class TriangleInfo {
         return a + b;
     }
 
-    public static boolean isTriangle(int a, int b, int c) {
-        boolean result;
+    public static boolean isTriangle(int a, int b, int c) { // Здесь мы выясняем можно ли построить равнобедрянный
+        boolean result;                                     // треугольник
         if (a < plusTowSide(b, c) && b < plusTowSide(a, c) && c < plusTowSide(a, b))
             result = true;
         else
