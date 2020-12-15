@@ -15,16 +15,14 @@ public class TriangleSimpleInfo {
     }
 
     public static int minSide(int a, int b, int c) {
-        int results = 0;
-        if (a < b || a < c)
-            results = a;
-
-        if (b < a || b < c)
-            results = b;
-
-        if (c < a || c < b)
-            results = c;
-        return results;
+        int result;
+        if ((a < b) || (a < c))
+            result = a;
+        if ((b < a) || (b < c))
+            result = b;
+        else
+            result = c;
+        return result;
     }
 
     public static boolean isEquilateralTriangle(int a, int b, int c) {
