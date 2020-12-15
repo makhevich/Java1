@@ -3,7 +3,14 @@ package ru.progwards.java1.lessons.compare_if_cycles;
 public class CyclesGoldenFibo {
 
     public static boolean containsDigit(int number, int digit) {
-        return number == digit;
+//        int buff = number % 10;
+        for (int i = 1; i == 10; i++) {
+            int buff = number % 10;
+            if (buff == digit) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static int plusTowSide (int a, int b) { // функция для скалдывания данных
@@ -35,25 +42,21 @@ public class CyclesGoldenFibo {
     }
 
     public static boolean isGoldenTriangle(int a, int b, int c) { // Здесь мы находим золотой треугольник
-        boolean result = true;
         double side1 = (double)a;
         double side2 = (double)b;
         double side3 = (double)c;
         double side1DivideSide2 = side1 / side2;
         double side2DivideSide3 = side2 / side3;
         double side3DivideSide1 = side3 / side1;
-        if (isTriangle(a, b , c) == true )
-            return ((side1DivideSide2 > 1.61703 && side1DivideSide2 < 1.61903) && (side2DivideSide3 > 1.61703 &&
-            side2DivideSide3 < 1.61903) && (side3DivideSide1 > 1.61703 && side3DivideSide1 < 1.61903));
-        else
-            return false;
-
+        return ((side1DivideSide2 > 1.61703 || side1DivideSide2 < 1.61903) && (side2DivideSide3 > 1.61703 ||
+        side2DivideSide3 < 1.61903) && (side3DivideSide1 > 1.61703 || side3DivideSide1 < 1.61903));
     }
 
     public static void main(String[] args) {
         for (int i = 1; i <= 15; i++) {
             System.out.print(fiboNumber(i) + " ");
         }
+        System.out.println(isGoldenTriangle(55, 55, 34));
 
 //        while () {
 //
