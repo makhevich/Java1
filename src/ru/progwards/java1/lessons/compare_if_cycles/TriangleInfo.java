@@ -6,16 +6,11 @@ public class TriangleInfo {
         return a + b;
     }
 
-    public static boolean isTriangle(int a, int b, int c) { // Здесь мы выясняем можно ли построить равнобедрянный
-        boolean result;                                     // треугольник
-        if (a < plusTowSide(b, c) && b < plusTowSide(a, c) && c < plusTowSide(a, b))
-            result = true;
-        else
-            result = false;
-        return result;
+    public static boolean isTriangle(int a, int b, int c) { // Здесь мы выясняем можно ли построить треугольник
+        return (a < plusTowSide(b, c) && b < plusTowSide(a, c) && c < plusTowSide(a, b));
     }
 
-    public static boolean isRightTriangle(int a, int b, int c) {
+    public static boolean isRightTriangle(int a, int b, int c) { // Триугольник равнобедрянный?
         boolean result;
         int sideTriangle1 = a * a;
         int sideTriangle2 = b * b;
