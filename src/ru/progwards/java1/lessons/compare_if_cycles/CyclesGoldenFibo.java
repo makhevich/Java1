@@ -2,6 +2,9 @@ package ru.progwards.java1.lessons.compare_if_cycles;
 
 public class CyclesGoldenFibo {
 
+    public static final double GMIN  = 1.61703d;
+    public static final double GMAX  = 1.61903d;
+
     public static boolean containsDigit(int number, int digit) {
         while (number > 0 ) {
             int buff = number % 10;
@@ -10,7 +13,7 @@ public class CyclesGoldenFibo {
             }
             number = number / 10;
         }
-        return false;
+        return number == digit;
     }
 
     public static int fiboNumber(int n) { // Здесь мы получаем число из ряда Фибаначи
@@ -30,28 +33,38 @@ public class CyclesGoldenFibo {
 
     public static boolean isGoldenTriangle(int a, int b, int c) { // Здесь мы находим золотой треугольник
 
-        double side1 = (double) a;
-        double side2 = (double) b;
-        double side3 = (double) c;
-        double side1DivideSide2 = side1 / side2;
-        double side2DivideSide3 = side2 / side3;
-        double side3DivideSide1 = side3 / side1;
-        if (TriangleInfo.isRightTriangle(a, b, c))
+        double sideA = (double) a;
+        double sideB = (double) b;
+        double sideC = (double) c;
+        double ab = sideA / sideB;
+        double bc = sideB / sideC;
+        double ca = sideC / sideA;
+        if (!TriangleInfo.isIsoscelesTriangle (a, b, c)) {
             return false;
-        if ((side1DivideSide2 >= 1.61703 && side1DivideSide2 <= 1.61903) && a == b)
+        }
+        if (ab >= GMIN && ab <= GMAX) {
             return true;
-        if ((side2DivideSide3 >= 1.61703 && side2DivideSide3 <= 1.61903) && b == c)
+        }
+        if (bc >= GMIN && bc <= GMAX) {
             return true;
-        if ((side2DivideSide3 >= 1.61703 && side3DivideSide1 <= 1.61903) && c == a)
+        }
+        if (ca >= GMIN && ca <= GMAX) {
             return true;
+        }
         return false;
+
+//        return (TriangleInfo.isIsoscelesTriangle (a, b, c) &&
+//                ((ab >= GMIN && ab <= GMAX) ||
+//                (bc >= GMIN && bc <= GMAX) ||
+//                (ca >= GMIN && ca <= GMAX)));
     }
 
     public static void main(String[] args) {
         for (int i = 1; i <= 15; i++) {
             System.out.print(fiboNumber(i) + " ");
         }
-        System.out.println(isGoldenTriangle(34, 34, 55));
+        System.out.println(isGoldenTriangle(55, 55, 34));
         System.out.println(containsDigit(12345, 9));
+        System.out.println(TriangleInfo.isIsoscelesTriangle (55, 55, 34));
     }
 }
