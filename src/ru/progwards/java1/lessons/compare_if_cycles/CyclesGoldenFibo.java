@@ -13,7 +13,7 @@ public class CyclesGoldenFibo {
             }
             number = number / 10;
         }
-        return number == digit;
+        return false;
     }
 
     public static int fiboNumber(int n) { // Здесь мы получаем число из ряда Фибаначи
@@ -33,24 +33,31 @@ public class CyclesGoldenFibo {
 
     public static boolean isGoldenTriangle(int a, int b, int c) { // Здесь мы находим золотой треугольник
 
-        double sideA = (double) a;
-        double sideB = (double) b;
-        double sideC = (double) c;
-        double ab = sideA / sideB;
-        double bc = sideB / sideC;
-        double ca = sideC / sideA;
+        double x = (double) TriangleSimpleInfo.maxSide(a, b, c);
+        double y = (double) TriangleSimpleInfo.minSide(a, b, c);
+//        double sideA = (double) a;
+//        double sideB = (double) b;
+//        double sideC = (double) c;
+//        double ab = sideA / sideB;
+//        double bc = sideB / sideC;
+//        double ca = sideC / sideA;
         if (!TriangleInfo.isIsoscelesTriangle (a, b, c)) {
             return false;
         }
-        if (ab >= GMIN && ab <= GMAX) {
+        if (x/y >= GMIN && x/y <= GMAX) {
             return true;
         }
-        if (bc >= GMIN && bc <= GMAX) {
-            return true;
-        }
-        if (ca >= GMIN && ca <= GMAX) {
-            return true;
-        }
+
+//        if (!TriangleSimpleInfo.maxSide)
+//        if (ab >= GMIN && ab <= GMAX) {
+//            return true;
+//        }
+//        if (bc >= GMIN && bc <= GMAX) {
+//            return true;
+//        }
+//        if (ca >= GMIN && ca <= GMAX) {
+//            return true;
+//        }
         return false;
 
 //        return (TriangleInfo.isIsoscelesTriangle (a, b, c) &&
@@ -63,7 +70,7 @@ public class CyclesGoldenFibo {
         for (int i = 1; i <= 15; i++) {
             System.out.print(fiboNumber(i) + " ");
         }
-        System.out.println(isGoldenTriangle(55, 55, 34));
+        System.out.println(isGoldenTriangle(89, 67, 55));
         System.out.println(containsDigit(12345, 9));
         System.out.println(TriangleInfo.isIsoscelesTriangle (55, 55, 34));
     }
