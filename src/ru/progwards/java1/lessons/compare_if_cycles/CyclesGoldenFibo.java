@@ -13,6 +13,8 @@ public class CyclesGoldenFibo {
             }
             number = number / 10;
         }
+        if (number == 0 && digit == 0)
+            return true;
         return false;
     }
 
@@ -32,46 +34,38 @@ public class CyclesGoldenFibo {
     }
 
     public static boolean isGoldenTriangle(int a, int b, int c) { // Здесь мы находим золотой треугольник
-
-        double x = (double) TriangleSimpleInfo.maxSide(a, b, c);
-        double y = (double) TriangleSimpleInfo.minSide(a, b, c);
-//        double sideA = (double) a;
-//        double sideB = (double) b;
-//        double sideC = (double) c;
-//        double ab = sideA / sideB;
-//        double bc = sideB / sideC;
-//        double ca = sideC / sideA;
+        double aSide = (double) a;
+        double bSide = (double) b;
+        double cSide = (double) c;
+        double rib = 0; // это ребро
+        double footing = 0; // это основание
         if (!TriangleInfo.isIsoscelesTriangle (a, b, c)) {
             return false;
         }
-        if (x/y >= GMIN && x/y <= GMAX) {
+        if (a == b) {
+            footing = cSide;
+            rib = aSide;
+        }
+        if (b == c) {
+            footing = aSide;
+            rib = cSide;
+        }
+        if (c == a) {
+            footing = bSide;
+            rib = cSide;
+        }
+        if (footing/rib >= GMIN && footing/rib <= GMAX) {
             return true;
         }
-
-//        if (!TriangleSimpleInfo.maxSide)
-//        if (ab >= GMIN && ab <= GMAX) {
-//            return true;
-//        }
-//        if (bc >= GMIN && bc <= GMAX) {
-//            return true;
-//        }
-//        if (ca >= GMIN && ca <= GMAX) {
-//            return true;
-//        }
         return false;
-
-//        return (TriangleInfo.isIsoscelesTriangle (a, b, c) &&
-//                ((ab >= GMIN && ab <= GMAX) ||
-//                (bc >= GMIN && bc <= GMAX) ||
-//                (ca >= GMIN && ca <= GMAX)));
     }
 
     public static void main(String[] args) {
         for (int i = 1; i <= 15; i++) {
             System.out.print(fiboNumber(i) + " ");
         }
-        System.out.println(isGoldenTriangle(89, 67, 55));
-        System.out.println(containsDigit(12345, 9));
+        System.out.println(isGoldenTriangle(89, 89, 144));
+        System.out.println(containsDigit(1, 0));
         System.out.println(TriangleInfo.isIsoscelesTriangle (55, 55, 34));
     }
 }
