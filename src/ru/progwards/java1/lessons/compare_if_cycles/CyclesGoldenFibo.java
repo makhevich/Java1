@@ -55,7 +55,7 @@ public class CyclesGoldenFibo {
             footing = bSide;
             rib = cSide;
         }
-        if (footing/rib >= GMIN && footing/rib <= GMAX) {
+        if (rib/footing >= GMIN && footing/rib <= GMAX) {
             return true;
         }
         return false;
