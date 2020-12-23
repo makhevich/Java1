@@ -43,19 +43,9 @@ public class CyclesGoldenFibo {
         if (!TriangleInfo.isIsoscelesTriangle (a, b, c)) {
             return false;
         }
-        if (a == b) {
-            footing = cSide;
-            rib = aSide;
-        }
-        if (b == c) {
-            footing = aSide;
-            rib = cSide;
-        }
-        if (c == a) {
-            footing = bSide;
-            rib = cSide;
-        }
-        if (rib/footing >= GMIN && footing/rib <= GMAX) {
+        if ((a == b && bSide/cSide >= GMIN && bSide/cSide <= GMAX) ||
+                (b == c && cSide/aSide >= GMIN && cSide/aSide <= GMAX) ||
+                (c == a && aSide/bSide >= GMIN && aSide/bSide <= GMAX)){
             return true;
         }
         return false;
@@ -67,6 +57,6 @@ public class CyclesGoldenFibo {
         }
         System.out.println(isGoldenTriangle(89, 89, 144));
         System.out.println(containsDigit(45679, 0));
-        System.out.println(TriangleInfo.isIsoscelesTriangle (55, 55, 34));
+        System.out.println(TriangleInfo.isIsoscelesTriangle (89, 89, 55));
     }
 }
