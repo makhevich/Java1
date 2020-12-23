@@ -6,15 +6,16 @@ public class CyclesGoldenFibo {
     public static final double GMAX  = 1.61903d;
 
     public static boolean containsDigit(int number, int digit) {
+        if (number == digit) {
+            return true;
+        }
         while (number > 0 ) {
             int buff = number % 10;
             if (buff == digit) {
                 return true;
             }
-            number = number / 10;
+            number /= 10;
         }
-        if (number == 0 && digit == 0)
-            return true;
         return false;
     }
 
@@ -65,7 +66,7 @@ public class CyclesGoldenFibo {
             System.out.print(fiboNumber(i) + " ");
         }
         System.out.println(isGoldenTriangle(89, 89, 144));
-        System.out.println(containsDigit(1, 0));
+        System.out.println(containsDigit(45679, 0));
         System.out.println(TriangleInfo.isIsoscelesTriangle (55, 55, 34));
     }
 }
